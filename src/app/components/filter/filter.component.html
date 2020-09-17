@@ -1,0 +1,36 @@
+<div>
+    <h2>Filters</h2>
+    <section>
+        <span>Launch Year</span>
+        <span class="separator"></span>
+        <div class="grid-container">
+            <div class="grid-item" *ngFor="let year of launchYears">
+                <button class="button">{{year}}</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <span>Successful Launch</span>
+        <span class="separator"></span>
+        <div class="grid-container">
+            <div class="grid-item">
+                <button class="button">True</button>
+            </div>
+            <div class="grid-item">
+                <button class="button">False</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <span>Successful Landing</span>
+        <span class="separator"></span>
+        <div class="grid-container">
+            <div class="grid-item">
+                <button class="button">year</button>
+            </div>
+            <div class="grid-item">
+                <button class="button">False</button>
+            </div>
+        </div>
+    </section>
+</div>

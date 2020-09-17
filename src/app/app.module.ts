@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProgramsComponent } from './containers/programs/programs.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { ProgramComponent } from './components/program/program.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProgramsComponent,
+    FilterComponent,
+    ProgramComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
