@@ -5,7 +5,7 @@
         <span class="separator"></span>
         <div class="grid-container">
             <div class="grid-item" *ngFor="let year of launchYears">
-                <button class="button">{{year}}</button>
+                <button class="button" [value]="year" (click)="filterAsPerLaunchYear($event)">{{year}}</button>
             </div>
         </div>
     </section>
@@ -14,10 +14,10 @@
         <span class="separator"></span>
         <div class="grid-container">
             <div class="grid-item">
-                <button class="button">True</button>
+                <button class="button" (click)="filterAsPerSuccessLaunch(true)">True</button>
             </div>
             <div class="grid-item">
-                <button class="button">False</button>
+                <button class="button" (click)="filterAsPerSuccessLaunch(false)">False</button>
             </div>
         </div>
     </section>
@@ -26,10 +26,10 @@
         <span class="separator"></span>
         <div class="grid-container">
             <div class="grid-item">
-                <button class="button">year</button>
+                <button class="button" (click)="filterAsPerLandLaunch(true)">year</button>
             </div>
             <div class="grid-item">
-                <button class="button">False</button>
+                <button class="button" (click)="filterAsPerLandLaunch(false)">False</button>
             </div>
         </div>
     </section>

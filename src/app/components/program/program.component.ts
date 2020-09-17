@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { program } from 'src/app/services/spacex.service';
+import { IProgram } from 'src/app/shared/madel';
 
 @Component({
   selector: 'app-program',
@@ -7,7 +7,7 @@ import { program } from 'src/app/services/spacex.service';
   styleUrls: ['./program.component.scss']
 })
 export class ProgramComponent implements OnInit {
- @Input() program: program;
+ @Input() program: IProgram;
   constructor() { }
 
   ngOnInit(): void {
