@@ -4,7 +4,6 @@
     </div>
 </div>
 <div *ngIf="!(loading$ | async)" class="cards">
-   
         <div *ngFor="let program of (programs$ | async)" class="cards-width">
             <app-program [program]="program"></app-program>
         </div>
