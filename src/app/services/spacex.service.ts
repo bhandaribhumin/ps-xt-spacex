@@ -46,6 +46,7 @@ export class SpaceXService {
                      launchSuccess: value.launch_success
                  })
              })
+             this._spaceXData.next(temp);
              return temp;
           }),
           finalize(() => {

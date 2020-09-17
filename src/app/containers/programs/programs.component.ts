@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SpaceXService } from 'src/app/services/spacex.service';
 import { IFilter, IProgram } from 'src/app/shared/madel';
 
@@ -8,15 +9,20 @@ import { IFilter, IProgram } from 'src/app/shared/madel';
   styleUrls: ['./programs.component.scss']
 })
 export class ProgramsComponent implements OnInit {
-  isLoading:boolean = true;
+  public loading$: Observable<boolean>;
+  public programs$: Observable<any[]>;
   constructor(private _spacexService: SpaceXService) { }
 
   programs: IProgram[] = []
 
   ngOnInit(){
+    this.loading$ = this._spacexService.isLoading;
+    this.programs$ = this._spacexService.spaceXData;
+    this.programs$.subscribe(programs => {
+      console.log(programs);
+    },(error)=>console.log('error',error))
     this._spacexService.getSpaceXLaunches().subscribe(programs => {
-      this.isLoading = false;
       this.programs = programs;
-    },(error)=>this.isLoading = false)
+    },(error)=>console.log('error',error))
   }
 }
