@@ -11,9 +11,11 @@ import { IFilter, IProgram } from '../shared/madel';
      providedIn:'root'
 })
 export class SpaceXService {
+    
     constructor(private _http: HttpClient) { }    
  
     getSpaceXLaunches(filterQuery?:IFilter){
+        console.log('url');
         let url = environment.url;
         if(filterQuery){
            if(filterQuery.launchSuccess !== undefined){
@@ -42,7 +44,7 @@ export class SpaceXService {
              })
              return temp;
           })
-      );
+      )
     }
 
     

@@ -22,17 +22,17 @@ this.filterQueryParams = {} as IFilter;
   filterAsPerLaunchYear(event){
    console.log(event.target.value);
    this.filterQueryParams.launchYear = event.target.value;
-   this._spacexService.getSpaceXLaunches(this.filterQueryParams);
+   this._spacexService.getSpaceXLaunches(this.filterQueryParams).subscribe();
   }
 
   filterAsPerSuccessLaunch(value: boolean){
     this.filterQueryParams.launchSuccess = value;
-    this._spacexService.getSpaceXLaunches(this.filterQueryParams);
+    this._spacexService.getSpaceXLaunches(this.filterQueryParams).subscribe();
   }
 
   filterAsPerLandLaunch(value: boolean) {
     this.filterQueryParams.landSuccess = value;
-    this._spacexService.getSpaceXLaunches(this.filterQueryParams);
+    this._spacexService.getSpaceXLaunches(this.filterQueryParams).subscribe();
   }
 
 }
