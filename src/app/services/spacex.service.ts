@@ -12,7 +12,7 @@ import { IFilter, IProgram } from '../shared/madel';
 })
 export class SpaceXService {
     private _spaceXData: BehaviorSubject<any[]> = new BehaviorSubject([]);
-    spaceXData: Observable<any[]> = this._spaceXData.asObservable().distinctUntilChanged();
+    spaceXData: Observable<any[]> = this._spaceXData.asObservable();
   
     constructor(private _http: HttpClient) { }    
  
