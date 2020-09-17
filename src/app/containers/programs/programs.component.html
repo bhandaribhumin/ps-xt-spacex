@@ -1,3 +1,10 @@
-<div *ngFor="let program of programs">
-    <app-program [program]="program" ></app-program>
+<div class="message" *ngIf="isLoading">
+    <div>
+        <h1 class="loading">We are getting Data from Spacex<span>.</span><span>.</span><span>.</span></h1>
+    </div>
+</div>
+<div *ngIf="!isLoading" class="cards">
+    <div *ngFor="let program of programs" class="cards-width">
+        <app-program [program]="program"></app-program>
+    </div>
 </div>

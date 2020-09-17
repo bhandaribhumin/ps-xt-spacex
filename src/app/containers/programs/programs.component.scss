@@ -1,0 +1,45 @@
+@import "./../../../assets/responsive.scss";
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 200px;
+  width: 100%;
+  h1 {
+    margin: 20px;
+  }
+}
+
+@include media("<=700px") {
+  .cards-width {
+    width: 100%;
+  }
+  app-program {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+}
+@include media(">=699px", "<1024px") {
+  .cards {
+    flex: 0 1 calc(50% - 1em) !important;
+    flex-direction: row;
+  }
+}
+
+@include media(">=desktop") {
+  .cards {
+    flex-direction: row;
+    flex: 0 1 calc(25% - 1em);
+  }
+}

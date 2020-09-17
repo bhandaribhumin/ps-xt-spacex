@@ -1,4 +1,4 @@
-
+@import "./../assets/responsive.scss";
   .toolbar {
     position: absolute;
     top: 0;
@@ -13,4 +13,40 @@
     font-weight: 600;
     font-size: 24px;
   }
+  .main {
+
+    &-container {
+      margin-top: 65px;
+      display: flex;
+      flex-direction: row;
+    }
+    .filter-section{
+        margin: 0px 5px;
+        text-align: center;
+    }
+    .item-section{
+      margin-top :5px;
+      width:100%;
+    }
+    @include media("<=700px") {
+      background-color: #def;
+      &-container {
+        flex-direction: column;
+      }
+      .filter-section{
+        //margin: 0 auto;
+       
+     }
+    }
+    @include media(">=699px", "<1024px") {
+      background-color: #fed;
+  
+    }
+    @include media(">=desktop") {
+      background-color: #fab;
+    }
+  }
+  
+  
+  
 

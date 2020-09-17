@@ -25,7 +25,6 @@ export class SpaceXService {
                      image: value.links.mission_patch_small,
                      launchYear: value.launch_year,
                      launchSuccess: value.launch_success
-
                  })
              })
 

@@ -2,14 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProgramsComponent } from './containers/programs/programs.component';
 
-const routes: Routes = [
-  {
-    path: 'programs', component: ProgramsComponent
-  },
-  {
-    path: '', redirectTo: 'programs' ,pathMatch:'full'
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
@@ -18,3 +11,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+

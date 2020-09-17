@@ -1,6 +1,12 @@
+@import "./../../../assets/responsive.scss";
+.filter-wrapper{
+  height: auto;
+      background-color: white;
+}
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;  
+   
   }
   .grid-item {  
     padding: 10px;
@@ -14,5 +20,5 @@
       border: 1px solid #96e212;
       color:black;
       border-radius: 5px;
-      width: 60%;
-  }
+      width: auto;
+  } 
