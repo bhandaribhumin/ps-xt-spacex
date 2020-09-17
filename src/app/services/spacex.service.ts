@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap,distinctUntilChanged } from 'rxjs/operators';
+import { map, tap,distinctUntilChanged, finalize } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IFilter, IProgram } from '../shared/madel';
 
@@ -13,10 +13,13 @@ import { IFilter, IProgram } from '../shared/madel';
 export class SpaceXService {
     private _spaceXData: BehaviorSubject<any[]> = new BehaviorSubject([]);
     spaceXData: Observable<any[]> = this._spaceXData.asObservable();
-  
+    private _isLoading: BehaviorSubject<boolean> = new BehaviorSubject(true);
+    isLoading: Observable<boolean> = this._isLoading.asObservable();
+    
     constructor(private _http: HttpClient) { }    
  
     getSpaceXLaunches(filterQuery?:IFilter){
+        this._isLoading.next(true);
         let url = environment.url;
         if(filterQuery){
            if(filterQuery.launchSuccess !== undefined){
@@ -44,6 +47,10 @@ export class SpaceXService {
                  })
              })
              return temp;
+          }),
+          finalize(() => {
+            // Do some work after complete...
+            this._isLoading.next(false);
           })
       )
     }
