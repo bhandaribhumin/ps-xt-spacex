@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap,distinctUntilChanged } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IFilter, IProgram } from '../shared/madel';
-
 
 
 
@@ -11,7 +11,9 @@ import { IFilter, IProgram } from '../shared/madel';
      providedIn:'root'
 })
 export class SpaceXService {
-
+    private _spaceXData: BehaviorSubject<any[]> = new BehaviorSubject([]);
+    spaceXData: Observable<any[]> = this._spaceXData.asObservable().distinctUntilChanged();
+  
     constructor(private _http: HttpClient) { }    
  
     getSpaceXLaunches(filterQuery?:IFilter){
